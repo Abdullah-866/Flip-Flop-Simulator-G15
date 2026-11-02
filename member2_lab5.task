@@ -1,0 +1,20 @@
+G15 - Flip-Flop Simulator (D and JK)
+Member 2: Rana Haider Saleem
+Roll No: 24-cs-003
+
+Lab 5: Three Examples
+
+Example 1: D Flip-Flop
+Input D = 0
+Current Q = 1
+Expected Next Q = 0
+
+Example 2: JK Flip-Flop
+Input J = 1, K = 0
+Current Q = 0
+Expected Next Q = 1
+
+Example 3: JK Flip-Flop
+Input J = 1, K = 1
+Current Q = 0
+Expected Next Q = 1
