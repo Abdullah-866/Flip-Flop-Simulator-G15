@@ -1,0 +1,31 @@
+Name: Rana Haider saleem
+reg no: 24-cs-003
+
+START
+1. Set initial output Q = 0.
+2. Display the input controls.
+3. Ask the user to select a flip-flop type.
+4. If D Flip-Flop is selected:
+   Read D input.
+   Wait for the Clock button.
+   When Clock is pressed:
+   Set Next Q = D.
+   Update Q.
+5. If JK Flip-Flop is selected:
+   Read J and K inputs.
+   Wait for the Clock button.
+   When Clock is pressed:
+      If J = 0 and K = 0:
+      Keep previous Q.
+      If J = 0 and K = 1:
+      Set Q = 0.
+      If J = 1 and K = 0:
+      Set Q = 1.
+      If J = 1 and K = 1:
+      Change Q to its opposite value.
+6. Display the new Q output.
+7. Add the clock number, inputs and Q output
+   to the history table.
+8. Repeat whenever the Clock button is pressed.
+9. Stop when the user closes the simulator.
+END
