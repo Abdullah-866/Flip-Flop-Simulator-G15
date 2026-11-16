@@ -1,10 +1,35 @@
+/* =========================================
+   FLIP-FLOP SIMULATOR
+   LAB 7 FRONT-END
+   ========================================= */
+
 :root {
-  --navy: #1f3864;
-  --page: #eef2f7;
-  --white: #ffffff;
-  --line: #d3dbe8;
-  --text: #1c2433;
+  --background: #eef3f8;
+  --glass: rgba(255, 255, 255, 0.72);
+  --glass-strong: rgba(255, 255, 255, 0.88);
+
+  --primary: #1f3864;
+  --primary-light: #315b91;
+
+  --accent: #5b7cfa;
+  --success: #30b879;
+  --warning: #f5a623;
+
+  --text: #182235;
+  --muted: #6b7688;
+
+  --border: rgba(255, 255, 255, 0.75);
+
+  --shadow:
+    0 18px 45px rgba(31, 56, 100, 0.12);
+
+  --radius: 22px;
 }
+
+
+/* =========================================
+   BASIC RESET
+   ========================================= */
 
 * {
   box-sizing: border-box;
@@ -12,66 +37,635 @@
 
 body {
   margin: 0;
-  background: var(--page);
+  min-height: 100vh;
+
+  font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
   color: var(--text);
-  font-family: "Segoe UI", Arial, sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(91, 124, 250, 0.20),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 20%,
+      rgba(48, 184, 121, 0.16),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(245, 166, 35, 0.12),
+      transparent 30%
+    ),
+    var(--background);
+
   line-height: 1.5;
 }
 
-/* ---------- Header ---------- */
+
+/* =========================================
+   APP HEADER
+   ========================================= */
+
 header {
-  background: var(--navy);
-  color: var(--white);
-  padding: 32px 24px;
+  position: relative;
+
+  max-width: 1100px;
+  margin: 28px auto 22px;
+
+  padding: 30px 32px;
+
   text-align: center;
-  border-bottom: 4px solid #f5a623;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(31, 56, 100, 0.96),
+      rgba(49, 91, 145, 0.90)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  border-radius: 28px;
+
+  box-shadow:
+    0 20px 45px rgba(31, 56, 100, 0.22);
 }
 
 header h1 {
   margin: 0;
-  font-size: 2rem;
-  letter-spacing: 1px;
+
+  font-size: 2.1rem;
+
+  font-weight: 700;
+
+  letter-spacing: -0.5px;
 }
 
-/* ---------- Input area and result area ---------- */
+header p {
+  margin: 7px 0 0;
+
+  font-size: 0.95rem;
+
+  opacity: 0.78;
+}
+
+
+/* =========================================
+   MAIN GLASS CARDS
+   ========================================= */
+
 .input-area,
 .result-area {
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  max-width: 720px;
-  margin: 24px auto;
-  padding: 24px;
-  box-shadow: 0 2px 6px rgba(31, 56, 100, 0.08);
+
+  width: min(1000px, calc(100% - 32px));
+
+  margin: 22px auto;
+
+  padding: 28px;
+
+  background: var(--glass);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius);
+
+  box-shadow: var(--shadow);
+
+  backdrop-filter: blur(18px);
+
+  -webkit-backdrop-filter: blur(18px);
 }
 
 .input-area h2,
 .result-area h2 {
-  margin: 0 0 16px;
-  padding-bottom: 8px;
-  color: var(--navy);
-  font-size: 1.25rem;
-  border-bottom: 2px solid var(--line);
+
+  margin: 0 0 22px;
+
+  color: var(--primary);
+
+  font-size: 1.35rem;
+
+  font-weight: 700;
 }
 
-/* Small accent on the left of each area */
-.input-area {
-  border-left: 6px solid var(--navy);
+
+/* =========================================
+   FLIP-FLOP CARDS
+   ========================================= */
+
+.flipflop-box {
+
+  padding: 22px;
+
+  margin-bottom: 18px;
+
+  background: var(--glass-strong);
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 8px 25px rgba(31, 56, 100, 0.07);
 }
 
-.result-area {
-  border-left: 6px solid #2ecc71;
+.flipflop-box:last-child {
+  margin-bottom: 0;
 }
 
-/* ---------- Small screens (phone) ---------- */
-@media (max-width: 600px) {
+.flipflop-box h3 {
+
+  margin: 0 0 18px;
+
+  color: var(--primary);
+
+  font-size: 1.1rem;
+}
+
+
+/* =========================================
+   INPUT ROW
+   ========================================= */
+
+.input-row {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 12px 0;
+
+  border-bottom: 1px solid rgba(31, 56, 100, 0.08);
+}
+
+.input-row:last-child {
+  border-bottom: none;
+}
+
+.input-row label {
+
+  font-size: 0.95rem;
+
+  font-weight: 600;
+
+  color: var(--text);
+}
+
+
+/* =========================================
+   IOS-STYLE INPUT BUTTON
+   ========================================= */
+
+.input-button {
+
+  min-width: 72px;
+
+  padding: 9px 20px;
+
+  border: none;
+
+  border-radius: 50px;
+
+  background: var(--primary);
+
+  color: white;
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 14px rgba(31, 56, 100, 0.20);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.input-button:hover {
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 18px rgba(31, 56, 100, 0.25);
+}
+
+.input-button:active {
+  transform: scale(0.96);
+}
+
+
+/* =========================================
+   IOS-STYLE CLOCK BUTTON
+   ========================================= */
+
+.clock-button {
+
+  padding: 10px 22px;
+
+  border: none;
+
+  border-radius: 50px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #5b7cfa,
+      #315b91
+    );
+
+  color: white;
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 6px 16px rgba(91, 124, 250, 0.28);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.clock-button:hover {
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 9px 20px rgba(91, 124, 250, 0.34);
+}
+
+.clock-button:active {
+  transform: scale(0.96);
+}
+
+
+/* =========================================
+   RESULT CARDS
+   ========================================= */
+
+.result-box {
+
+  padding: 20px;
+
+  margin-bottom: 18px;
+
+  background: var(--glass-strong);
+
+  border-radius: 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+
+  box-shadow:
+    0 8px 25px rgba(31, 56, 100, 0.07);
+}
+
+.result-box h3 {
+
+  margin: 0 0 15px;
+
+  color: var(--primary);
+}
+
+
+/* =========================================
+   OUTPUT VALUE
+   ========================================= */
+
+.output-value {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-width: 42px;
+
+  height: 34px;
+
+  margin-left: 6px;
+
+  border-radius: 10px;
+
+  background: rgba(48, 184, 121, 0.14);
+
+  color: var(--success);
+
+  font-weight: 700;
+
+  border: 1px solid rgba(48, 184, 121, 0.25);
+}
+
+
+/* =========================================
+   CLOCK HISTORY
+   ========================================= */
+
+.history-box {
+
+  padding: 20px;
+
+  background: var(--glass-strong);
+
+  border-radius: 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+
+  overflow-x: auto;
+}
+
+.history-box h3 {
+
+  margin-top: 0;
+
+  color: var(--primary);
+}
+
+
+/* =========================================
+   TABLE
+   ========================================= */
+
+table {
+
+  width: 100%;
+
+  border-collapse: separate;
+
+  border-spacing: 0;
+
+  overflow: hidden;
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.75);
+}
+
+th,
+td {
+
+  padding: 12px;
+
+  text-align: center;
+
+  border-bottom: 1px solid rgba(31, 56, 100, 0.08);
+}
+
+th {
+
+  background: var(--primary);
+
+  color: white;
+
+  font-size: 0.85rem;
+}
+
+td {
+
+  color: var(--text);
+
+  font-size: 0.9rem;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+  header {
+
+    margin: 16px;
+
+    padding: 24px 18px;
+
+    border-radius: 22px;
+  }
+
   header h1 {
-    font-size: 1.5rem;
+    font-size: 1.55rem;
   }
 
   .input-area,
   .result-area {
-    margin: 16px;
+
+    width: calc(100% - 24px);
+
+    padding: 20px;
+
+    border-radius: 20px;
+  }
+
+  .flipflop-box,
+  .result-box,
+  .history-box {
+    padding: 16px;
+  }
+
+  .input-row {
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  .input-button,
+  .clock-button {
+    width: 100%;
+  }
+
+  table {
+    min-width: 600px;
+  }
+}
+/* =========================================
+   TRUTH TABLES
+   ========================================= */
+
+.truth-area {
+
+  width: min(1000px, calc(100% - 32px));
+
+  margin: 22px auto 40px;
+
+  padding: 28px;
+
+  background: var(--glass);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius);
+
+  box-shadow: var(--shadow);
+
+  backdrop-filter: blur(18px);
+
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.truth-area h2 {
+
+  margin: 0 0 22px;
+
+  color: var(--primary);
+
+  font-size: 1.35rem;
+
+  font-weight: 700;
+
+  text-align: center;
+}
+
+
+/* Two truth table cards */
+
+.truth-container {
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 20px;
+}
+
+
+/* Individual truth table card */
+
+.truth-card {
+
+  padding: 20px;
+
+  background: var(--glass-strong);
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 8px 25px rgba(31, 56, 100, 0.07);
+}
+
+.truth-card h3 {
+
+  margin: 0 0 16px;
+
+  color: var(--primary);
+
+  font-size: 1.1rem;
+
+  text-align: center;
+}
+
+
+/* Truth table */
+
+.truth-card table {
+
+  width: 100%;
+
+  border-collapse: separate;
+
+  border-spacing: 0;
+
+  overflow: hidden;
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.truth-card th {
+
+  padding: 11px;
+
+  background: var(--primary);
+
+  color: white;
+
+  font-size: 0.85rem;
+
+  text-align: center;
+}
+
+.truth-card td {
+
+  padding: 11px;
+
+  color: var(--text);
+
+  font-size: 0.9rem;
+
+  text-align: center;
+
+  border-bottom: 1px solid rgba(31, 56, 100, 0.08);
+}
+
+
+/* Operation column */
+
+.truth-card td:last-child {
+
+  font-weight: 700;
+
+  color: var(--primary);
+}
+
+
+/* Remove last row border */
+
+.truth-card tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =========================================
+   TRUTH TABLE MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+  .truth-area {
+
+    width: calc(100% - 24px);
+
+    padding: 20px;
+
+    border-radius: 20px;
+  }
+
+  .truth-container {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .truth-card {
+
     padding: 16px;
   }
 }
