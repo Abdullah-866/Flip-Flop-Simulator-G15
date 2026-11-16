@@ -1,17 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Flip-Flop Simulator (D and JK)</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+  <!-- =========================
+       HEADER
+       ========================= -->
   <header>
     <h1>Flip-Flop Simulator (D and JK)</h1>
+    <p>Digital Logic Flip-Flop Simulation</p>
   </header>
 
+
+  <!-- =========================
+       INPUT AREA
+       ========================= -->
   <div class="input-area">
+
     <h2>Inputs</h2>
+
+
+    <!-- D FLIP-FLOP -->
+    <div class="flipflop-box">
+
+      <h3>D Flip-Flop</h3>
+
+      <div class="input-row">
+        <label for="d-input">D Input</label>
+
+        <button id="d-input" class="input-button">
+          0
+        </button>
+      </div>
+
+      <div class="input-row">
+        <label>Clock</label>
+
+        <button class="clock-button">
+          Clock
+        </button>
+      </div>
+
+    </div>
+
+
+    <!-- JK FLIP-FLOP -->
+    <div class="flipflop-box">
+
+      <h3>JK Flip-Flop</h3>
+
+      <div class="input-row">
+        <label for="j-input">J Input</label>
+
+        <button id="j-input" class="input-button">
+          0
+        </button>
+      </div>
+
+      <div class="input-row">
+        <label for="k-input">K Input</label>
+
+        <button id="k-input" class="input-button">
+          0
+        </button>
+      </div>
+
+      <div class="input-row">
+        <label>Clock</label>
+
+        <button class="clock-button">
+          Clock
+        </button>
+      </div>
+
+    </div>
+
   </div>
 
+
+  <!-- =========================
+       RESULT AREA
+       ========================= -->
   <div class="result-area">
-    <h2>Result</h2>
+
+    <h2>Results</h2>
+
+
+    <!-- D FLIP-FLOP RESULT -->
+    <div class="result-box">
+
+      <h3>D Flip-Flop Output</h3>
+
+      <p>
+        Q:
+        <span class="output-value">0</span>
+      </p>
+
+      <p>
+        Q̅:
+        <span class="output-value">1</span>
+      </p>
+
+    </div>
+
+
+    <!-- JK FLIP-FLOP RESULT -->
+    <div class="result-box">
+
+      <h3>JK Flip-Flop Output</h3>
+
+      <p>
+        Q:
+        <span class="output-value">0</span>
+      </p>
+
+      <p>
+        Q̅:
+        <span class="output-value">1</span>
+      </p>
+
+    </div>
+
+
+    <!-- CLOCK HISTORY -->
+    <div class="history-box">
+
+      <h3>Clock History</h3>
+
+      <table>
+
+        <tr>
+          <th>Clock</th>
+          <th>D</th>
+          <th>J</th>
+          <th>K</th>
+          <th>D Q</th>
+          <th>JK Q</th>
+        </tr>
+
+        <tr>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+
+      </table>
+
+    </div>
+
   </div>
+
 </body>
+  <!-- =========================
+       TRUTH TABLES
+       ========================= -->
+  <section class="truth-area">
+
+    <h2>Flip-Flop Truth Tables</h2>
+
+    <div class="truth-container">
+
+      <!-- D FLIP-FLOP TRUTH TABLE -->
+      <div class="truth-card">
+
+        <h3>D Flip-Flop</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>D</th>
+              <th>Operation</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>0</td>
+              <td>Reset</td>
+            </tr>
+
+            <tr>
+              <td>1</td>
+              <td>Set</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+
+      <!-- JK FLIP-FLOP TRUTH TABLE -->
+      <div class="truth-card">
+
+        <h3>JK Flip-Flop</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>J</th>
+              <th>K</th>
+              <th>Operation</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>0</td>
+              <td>0</td>
+              <td>Hold</td>
+            </tr>
+
+            <tr>
+              <td>0</td>
+              <td>1</td>
+              <td>Reset</td>
+            </tr>
+
+            <tr>
+              <td>1</td>
+              <td>0</td>
+              <td>Set</td>
+            </tr>
+
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>Toggle</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+
+  </section>
+  
+</html>
