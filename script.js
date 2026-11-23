@@ -1,39 +1,37 @@
-function calculateFlipFlop(type, input1, input2, currentQ) {
+/* =========================================
+   FLIP-FLOP SIMULATOR
+   LAB 8: Feature 1 (D flip-flop)
+   ========================================= */
 
-    if (type === "D") {
-        return input1;
-    }
+/* ---------- Variables ---------- */
+// dValue is the D switch. dQ is the stored output Q.
+let dValue = 0;
+let dQ = 0;
 
-    if (type === "JK") {
-        let J = input1;
-        let K = input2;
+/* ---------- Page elements ---------- */
+const dInput = document.getElementById("d-input");
+const dClock = document.getElementById("d-clock");
+const dQOut = document.getElementById("d-q");
+const dQbarOut = document.getElementById("d-qbar");
 
-        if (J === 0 && K === 0) {
-            return currentQ;
-        }
-        else if (J === 0 && K === 1) {
-            return 0;
-        }
-        else if (J === 1 && K === 0) {
-            return 1;
-        }
-        else if (J === 1 && K === 1) {
-            return currentQ === 0 ? 1 : 0;
-        }
-    }
+/* ---------- D flip-flop rule ----------
+   After a clock press, Q takes the value of D.
+   (Replace this with Ali Hassan's function if his version
+   has a different name.) */
+function dFlipFlop(d) {
+  return d;
 }
 
-// Example 1
-console.log("Example 1:",
-    calculateFlipFlop("D", 0, 0, 1)
-);
+/* ---------- D button: toggles between 0 and 1 ---------- */
+dInput.addEventListener("click", function () {
+  dValue = dValue === 0 ? 1 : 0;
+  dInput.textContent = dValue;
+});
 
-// Example 2
-console.log("Example 2:",
-    calculateFlipFlop("JK", 1, 0, 0)
-);
+/* ---------- Clock button: only here does Q change ---------- */
+dClock.addEventListener("click", function () {
+  dQ = dFlipFlop(dValue);
 
-// Example 3
-console.log("Example 3:",
-    calculateFlipFlop("JK", 1, 1, 0)
-);
+  dQOut.textContent = dQ;
+  dQbarOut.textContent = dQ === 0 ? 1 : 0;
+});
