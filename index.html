@@ -9,155 +9,117 @@
 </head>
 <body>
 
-    <header>
-        <h1>Flip-Flop Simulator (D and JK)</h1>
-        <p>Digital Logic Flip-Flop Simulation</p>
-    </header>
+<header>
+    <h1>Flip-Flop Simulator (D and JK)</h1>
+    <p>Digital Logic Flip-Flop Simulation</p>
+</header>
 
-    <div class="input-area">
-        <h2>Inputs</h2>
+<div class="input-area">
+    <h2>Inputs</h2>
 
-        <div class="flipflop-box">
-            <h3>D Flip-Flop</h3>
+    <div class="flipflop-box">
+        <h3>D Flip-Flop</h3>
 
-            <div class="input-row">
-                <label for="d-input">D Input</label>
-                <input
-                    type="text"
-                    id="d-input"
-                    class="input-button"
-                    placeholder="0 or 1"
-                    maxlength="1"
-                >
-            </div>
-
-            <div class="input-row">
-                <label for="d-clock">Clock</label>
-                <button id="d-clock" class="clock-button">Clock</button>
-            </div>
-
-            <p id="d-message"></p>
+        <div class="input-row">
+            <label>D Input</label>
+            <button id="d-input" class="input-button">0</button>
         </div>
 
-        <div class="flipflop-box">
-            <h3>JK Flip-Flop</h3>
-
-            <div class="input-row">
-                <label for="j-input">J Input</label>
-                <button id="j-input" class="input-button">0</button>
-            </div>
-
-            <div class="input-row">
-                <label for="k-input">K Input</label>
-                <button id="k-input" class="input-button">0</button>
-            </div>
-
-            <div class="input-row">
-                <label for="jk-clock">Clock</label>
-                <button id="jk-clock" class="clock-button">Clock</button>
-            </div>
+        <div class="input-row">
+            <label>Clock</label>
+            <button id="d-clock" class="clock-button">Clock</button>
         </div>
+
+        <p id="d-message"></p>
     </div>
 
-    <div class="result-area">
-        <h2>Results</h2>
+    <div class="flipflop-box">
+        <h3>JK Flip-Flop</h3>
 
-        <div class="result-box">
-            <h3>D Flip-Flop Output</h3>
-            <p>Q: <span id="d-q" class="output-value">0</span></p>
-            <p>Q̅: <span id="d-qbar" class="output-value">1</span></p>
+        <div class="input-row">
+            <label>J Input</label>
+            <button id="j-input" class="input-button">0</button>
         </div>
 
-        <div class="result-box">
-            <h3>JK Flip-Flop Output</h3>
-            <p>Q: <span id="jk-q" class="output-value">0</span></p>
-            <p>Q̅: <span id="jk-qbar" class="output-value">1</span></p>
+        <div class="input-row">
+            <label>K Input</label>
+            <button id="k-input" class="input-button">0</button>
         </div>
 
-        <div class="history-box">
-            <h3>Clock History</h3>
+        <div class="input-row">
+            <label>Clock</label>
+            <button id="jk-clock" class="clock-button">Clock</button>
+        </div>
+    </div>
+</div>
 
+<div class="result-area">
+    <h2>Results</h2>
+
+    <div class="result-box">
+        <h3>D Flip-Flop Output</h3>
+        <p>Q: <span id="d-q" class="output-value">0</span></p>
+        <p>Q̅: <span id="d-qbar" class="output-value">1</span></p>
+    </div>
+
+    <div class="result-box">
+        <h3>JK Flip-Flop Output</h3>
+        <p>Q: <span id="jk-q" class="output-value">0</span></p>
+        <p>Q̅: <span id="jk-qbar" class="output-value">1</span></p>
+    </div>
+
+    <div class="history-box">
+        <h3>Clock History</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Clock</th>
+                    <th>D</th>
+                    <th>J</th>
+                    <th>K</th>
+                    <th>D Q</th>
+                    <th>JK Q</th>
+                </tr>
+            </thead>
+            <tbody id="history-body"></tbody>
+        </table>
+    </div>
+</div>
+
+<section class="truth-area">
+    <h2>Flip-Flop Truth Tables</h2>
+
+    <div class="truth-container">
+        <div class="truth-card">
+            <h3>D Flip-Flop</h3>
             <table>
                 <thead>
-                    <tr>
-                        <th>Clock</th>
-                        <th>D</th>
-                        <th>J</th>
-                        <th>K</th>
-                        <th>D Q</th>
-                        <th>JK Q</th>
-                    </tr>
+                    <tr><th>D</th><th>Operation</th></tr>
                 </thead>
-                <tbody id="history-body"></tbody>
+                <tbody>
+                    <tr><td>0</td><td>Reset</td></tr>
+                    <tr><td>1</td><td>Set</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="truth-card">
+            <h3>JK Flip-Flop</h3>
+            <table>
+                <thead>
+                    <tr><th>J</th><th>K</th><th>Operation</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>0</td><td>0</td><td>Hold</td></tr>
+                    <tr><td>0</td><td>1</td><td>Reset</td></tr>
+                    <tr><td>1</td><td>0</td><td>Set</td></tr>
+                    <tr><td>1</td><td>1</td><td>Toggle</td></tr>
+                </tbody>
             </table>
         </div>
     </div>
+</section>
 
-    <section class="truth-area">
-        <h2>Flip-Flop Truth Tables</h2>
-
-        <div class="truth-container">
-            <div class="truth-card">
-                <h3>D Flip-Flop</h3>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th>D</th>
-                            <th>Operation</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>0</td>
-                            <td>Reset</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Set</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="truth-card">
-                <h3>JK Flip-Flop</h3>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th>J</th>
-                            <th>K</th>
-                            <th>Operation</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>Hold</td>
-                        </tr>
-                        <tr>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>Reset</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>Set</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>Toggle</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
