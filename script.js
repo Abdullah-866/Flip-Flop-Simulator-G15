@@ -3,6 +3,8 @@ let dQ = 0;
 let jkQ = 0;
 let clockCount = 0;
 
+let dValue = 0;
+
 // D Flip-Flop Elements
 const dInput = document.getElementById("d-input");
 const dClock = document.getElementById("d-clock");
@@ -38,60 +40,39 @@ function jkFlipFlop(j, k, q) {
     }
 }
 
-// Validate D Input
-function validateDInput(value) {
-    if (value === "") {
-        dMessage.textContent = "Error: D input cannot be empty!";
-        return false;
-    }
+// Toggle D Input Button
+dInput.addEventListener("click", function() {
+    dValue = dValue === 0 ? 1 : 0;
+    dInput.textContent = dValue;
+    dMessage.textContent = "";
+});
 
-    if (value !== "0" && value !== "1") {
-        dMessage.textContent = "Error: Enter only 0 or 1!";
-        return false;
-    }
-
-    return true;
-}
-
-// D Input Clock Button
-dClock.addEventListener("click", function () {
-    const value = dInput.value.trim();
-
-    if (!validateDInput(value)) {
-        return;
-    }
-
-    const d = Number(value);
-
-    dQ = dFlipFlop(d);
+// D Clock Button
+dClock.addEventListener("click", function() {
+    dQ = dFlipFlop(dValue);
 
     dQOut.textContent = dQ;
     dQbarOut.textContent = dQ === 0 ? 1 : 0;
 
     dMessage.textContent = "D Flip-Flop updated successfully!";
 
-    addHistory(d, "-", "-", dQ, jkQ);
+    addHistory(dValue, "-", "-", dQ, jkQ);
 });
 
-// Clear D Error When User Types
-dInput.addEventListener("input", function () {
-    dMessage.textContent = "";
+// Toggle J Input Button
+jInput.addEventListener("click", function() {
+    jInput.textContent = jInput.textContent === "0" ? "1" : "0";
 });
 
-// J Input Button
-jInput.addEventListener("click", function () {
-    jInput.textContent = jInput.textContent.trim() === "0" ? "1" : "0";
-});
-
-// K Input Button
-kInput.addEventListener("click", function () {
-    kInput.textContent = kInput.textContent.trim() === "0" ? "1" : "0";
+// Toggle K Input Button
+kInput.addEventListener("click", function() {
+    kInput.textContent = kInput.textContent === "0" ? "1" : "0";
 });
 
 // JK Clock Button
-jkClock.addEventListener("click", function () {
-    const j = Number(jInput.textContent.trim());
-    const k = Number(kInput.textContent.trim());
+jkClock.addEventListener("click", function() {
+    const j = Number(jInput.textContent);
+    const k = Number(kInput.textContent);
 
     jkQ = jkFlipFlop(j, k, jkQ);
 
@@ -116,7 +97,7 @@ function addHistory(d, j, k, dOutput, jkOutput) {
         jkOutput
     ];
 
-    values.forEach(function (value) {
+    values.forEach(function(value) {
         const cell = document.createElement("td");
         cell.textContent = value;
         row.appendChild(cell);
